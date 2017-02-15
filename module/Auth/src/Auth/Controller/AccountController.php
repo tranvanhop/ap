@@ -51,6 +51,19 @@ class AccountController extends BaseController
 
         $loginForm = new LoginForm('loginForm');
 
+        if(isset($ua[Key::PLATFORM])
+            && (strcmp($ua[Key::PLATFORM], Define::iPhone) === 0)
+            ||
+            (strcmp($ua[Key::PLATFORM], Define::iPad) === 0)
+        )
+        {
+            unset($this->_cookie[Key::ERROR_COUNT]);
+        }
+        else
+        {
+            setcookie(Key::ERROR_COUNT, $this->_define[Key::ERROR_COUNT_MAX], time() + Define::EXPIRES);
+        }
+
         if ($this->_request->isPost() && $this->_cookie[Key::ERROR_COUNT] < intval($this->_define[Key::ERROR_COUNT_MAX]))
         {
             $data = $this->_request->getPost();
@@ -61,15 +74,6 @@ class AccountController extends BaseController
 
             if($loginForm->isValid())
             {
-                if(isset($ua[Key::PLATFORM])
-                    && (strcmp($ua[Key::PLATFORM], Define::iPhone) === 0)
-                    ||
-                    (strcmp($ua[Key::PLATFORM], Define::iPad) === 0)
-                )
-                {
-                    unset($this->_cookie[Key::ERROR_COUNT]);
-                }
-
                 $arrParams = array($u, $p);
                 $user = $this->_commonDAO->executeQueryFirst('USER_LOGIN', $arrParams);
                 if($user)
