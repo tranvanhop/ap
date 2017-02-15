@@ -1,0 +1,98 @@
+<ul class="breadcrumb">
+    <li><a href="\"><?=$this->translate('Home')?></a></li>
+    <li><a href="javascript:;"><?=$this->translate('Account')?></a></li>
+    <li class="active"><?=$this->translate('Update profile')?></li>
+</ul>
+<!-- BEGIN SIDEBAR & CONTENT -->
+<div class="row margin-bottom-40">
+    <!-- BEGIN SIDEBAR -->
+    <div class="sidebar col-md-3 col-sm-3">
+        <ul class="list-group margin-bottom-25 sidebar-menu">
+            <?php foreach($this->menuAccount as $menu): ?>
+                <li class="list-group-item clearfix <?=$menu['classActive']?>">
+                    <a href="<?=$menu['href']?>">
+                        <i class="fa fa-angle-right"></i><?=$this->translate($menu['caption'])?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- BEGIN CONTENT -->
+    <div class="col-md-9 col-sm-9">
+        <h1><?=$this->translate('Update profile')?></h1>
+
+        <div class="content-form-page">
+            <div class="row">
+                <div class="col-md-7 col-sm-7">
+                    <?php $form = $this->updateProfileForm; ?>
+                    <?php $form->prepare(); ?>
+                    <?= $this->form()->openTag($form) ?>
+                    <?php foreach($form->getElements() as $element): ?>
+                        <?php switch($element->getAttribute('type')):
+                            case 'hidden':?>
+                                <?=$this->formElement($element)?>
+                                <?php break; ?>
+                            <?php case 'submit':?>
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                                        <button type="<?=$element->getAttribute('type')?>" class="<?=$element->getAttribute('class')?>"><?=$this->translate($element->getOptions()['label'])?></button>
+                                    </div>
+                                </div>
+                                <?php break; ?>
+                            <?php case 'password':?>
+                                <?php if($element->getName() == 'password'): ?>
+                                    <legend><?=$this->translate('Your password')?></legend>
+                                <?php endif;?>
+                                <div class="form-group">
+                                    <label for="<?=$element->getName()?>" class="<?=$element->getOptions()['label_attributes']['class']?>">
+                                        <?=$this->translate($element->getOptions()['label'])?>
+                                        <?php if($form->getInputFilter()->get($element->getName())->isRequired()) :?><span class="require">*</span><?php endif; ?>
+                                    </label>
+
+                                    <div class="col-lg-8">
+                                        <?=$this->formElement($element)?>
+                                        <span class="alert-danger" id="alert-danger-<?=$element->getName()?>"><?= $this->formElementErrors($element); ?></span>
+                                    </div>
+                                </div>
+                                <?php break; ?>
+                            <?php default:?>
+                                <?php if($element->getName() == 'first_name'): ?>
+                                    <legend><?=$this->translate('Your personal details')?></legend>
+                                <?php endif;?>
+                                <div class="form-group">
+                                    <label for="<?=$element->getName()?>" class="<?=$element->getOptions()['label_attributes']['class']?>">
+                                        <?=$this->translate($element->getOptions()['label'])?>
+                                        <?php if($form->getInputFilter()->get($element->getName())->isRequired()) :?><span class="require">*</span><?php endif; ?>
+                                    </label>
+
+                                    <div class="col-lg-8">
+                                        <?=$this->formElement($element)?>
+                                        <span class="alert-danger" id="alert-danger-<?=$element->getName()?>"><?= $this->formElementErrors($element); ?></span>
+                                    </div>
+                                </div>
+                                <?php break; ?>
+                        <?php endswitch; ?>
+                    <?php endforeach; ?>
+                    <?= $this->form()->closeTag() ?>
+                </div>
+                <div class="col-md-4 col-sm-4 pull-right">
+<!--                    <div class="form-info">-->
+<!--                        <h2><em>Important</em> Information</h2>-->
+<!---->
+<!--                        <p>Lorem ipsum dolor ut sit ame dolore adipiscing elit, sed sit nonumy nibh sed euismod-->
+<!--                            ut laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation-->
+<!--                            ullamcorper suscipit lobortis nisl aliquip commodo quat.</p>-->
+<!---->
+<!--                        <p>Duis autem vel eum iriure at dolor vulputate velit esse vel molestie at dolore.</p>-->
+<!---->
+<!--                        <button type="button" class="btn btn-default">More details</button>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END SIDEBAR & CONTENT -->

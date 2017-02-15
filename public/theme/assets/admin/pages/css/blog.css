@@ -1,0 +1,165 @@
+/***
+post Page
+***/
+/*--Block Article--*/
+.post-page {
+  padding-bottom: 20px;
+}
+
+.post-page h1 {
+  margin-bottom: 20px;
+}
+
+.post-page h2 a {
+  color: #000;
+}
+
+.post-page h2 a:hover {
+  color: #0d638f;
+  text-decoration: none;
+}
+
+.post-page hr {
+  margin-top: 30px !important;
+}
+
+.post-page .article-block {
+  padding-bottom: 20px;
+}
+
+.post-page .news-img img {
+  margin-top: 9px;
+}
+
+.post-page .post-tag-data ul {
+  margin-bottom: 5px;
+}
+
+.post-page .post-tag-data li {
+  padding: 0;
+}
+
+.post-page .post-tag-data li i {
+  color: #78cff8;
+}
+
+.post-page .post-tag-data li a {
+  padding: 0;
+  color: #555;
+  margin-right: 8px;
+}
+
+.post-page .post-tag-data {
+  margin-bottom: 10px;
+}
+
+.post-page .post-tag-data ul.post-tags a {
+  background: #eee;
+  padding: 1px 4px;
+  margin: 0 4px 4px 0;
+  display: inline-block;
+}
+
+.post-page .post-tag-data ul.post-tags a:hover {
+  background: #ddd;
+  text-decoration: none;
+}
+
+.post-page .post-tag-data .post-tag-data-inner {
+  text-align: right;
+}
+
+.post-page .post-tag-data img {
+  margin-bottom: 12px;
+}
+
+.post-page .post-article {
+  padding-bottom: 20px;
+}
+
+.post-page .post-article h3,
+.post-page .post-article h2,
+.post-page .post-article h1,
+.post-page .post-article h4 {
+  margin-top: 0;
+}
+
+/*--Block Sidebar--*/
+.post-sidebar h2 {
+  font-size: 38.5px;
+  margin-bottom: 20px;
+}
+
+/*Twitter block*/
+.post-twitter-block {
+  padding: 5px;
+  position: relative;
+  margin-bottom: 10px;
+  border-right: solid 2px #ddd;
+}
+
+.post-twitter-block:hover {
+  background: #fafafa;
+  border-color: #35aa47;
+}
+
+.post-twitter-block a {
+  color: #4d90fe;
+}
+
+.post-twitter-block p {
+  margin-bottom: 0;
+}
+
+.post-twitter-block span {
+  color: #555;
+  display: block;
+  font-size: 12px;
+}
+
+.post-twitter-block i.post-twiiter-icon {
+  color: #eee;
+  right: 10px;
+  bottom: 10px;
+  font-size: 30px;
+  position: absolute;
+}
+
+/***
+post & News Item Page
+***/
+/*--Media Object--*/
+.post-page .media img {
+  height: 54px;
+  position: relative;
+  top: 3px;
+  width: 54px;
+}
+
+.post-page h4.media-heading {
+  position: relative;
+}
+
+.post-page h4.media-heading span {
+  color: #777777;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 3px;
+}
+
+.post-page h4.media-heading span a {
+  color: #78cff8;
+}
+
+/*Post Comment*/
+.post-page .post-comment .color-red {
+  color: #f00;
+}
+
+/*For Responsive*/
+@media (max-width: 768px) {
+  .post-page .post-tag-data .post-tag-data-inner {
+    text-align: left;
+  }
+}

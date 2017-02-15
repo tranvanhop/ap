@@ -1,0 +1,21 @@
+<?php foreach($this->friends as $friend):?>
+<li class="col-md-3">
+    <div class="thumbnail">
+        <a href="<?=$friend['facebook']?>" target="_blank">
+            <img alt="" src="<?=$friend['avatar']?>">
+        </a>
+        <h3>
+            <strong><?=$friend['first_name'].' '.$friend['middle_name'].' '.$friend['last_name']?></strong>
+            <small><?=$friend['job_title']?></small>
+        </h3>
+        <p><?=$friend['introduction']?></p>
+        <ul class="social-icons social-icons-color">
+            <li><a class="facebook" data-original-title="Facebook" href="<?=$friend['facebook']?>" target="_blank"></a></li>
+            <li><a class="twitter" data-original-title="Twitter" href="<?=$friend['twitter']?>" target="_blank"></a></li>
+            <li><a class="googleplus" data-original-title="Goole Plus" href="<?=$friend['google']?>" target="_blank"></a></li>
+            <li><a class="linkedin" data-original-title="Linkedin" href="<?=$friend['linkedin']?>" target="_blank"></a></li>
+            <li><a class="github" data-original-title="Github" href="<?=$friend['github']?>" target="_blank"></a></li>
+        </ul>
+    </div>
+</li>
+<?php endforeach;?>

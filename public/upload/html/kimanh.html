@@ -1,0 +1,26 @@
+<br>
+<p>`outputRequired_1 = regionSize_1 * c_1 * n_1`</p>
+<p>`outputRequired_2 = regionSize_2 * c_2 * n_2`</p>
+<form class="form-horizontal form-without-legend col-md-12 col-sm-12">
+    <div class="form-group">
+        <div class="col-md-3 col-sm-3">
+            <input type="number" name="regionSize" id="regionSize" class="form-control" value="" placeholder="Region size">
+            <span class="alert-danger"></span>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+            <input type="number" name="c" id="c" class="form-control" value="" placeholder="Coverage">
+            <span class="alert-danger"></span>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+            <input type="number" name="n" id="n" class="form-control" value="" placeholder="Number of samples">
+            <span class="alert-danger"></span>
+        </div>
+
+        <div class="col-md-3 col-sm-3">
+            <button type="submit" class="btn btn-primary"><?=$this->translate('Add')?></button>
+            <span class="alert-danger"></span>
+        </div>
+    </div>
+</form>

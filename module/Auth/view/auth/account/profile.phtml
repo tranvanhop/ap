@@ -1,0 +1,79 @@
+<ul class="breadcrumb">
+    <li><a href="/"><?= $this->translate('Home') ?></a></li>
+    <li><a href="javascript:;"><?= $this->translate('Account') ?></a></li>
+    <li class="active"><?= $this->translate('Profile') ?></li>
+</ul>
+<!-- BEGIN SIDEBAR & CONTENT -->
+<div class="row margin-bottom-40">
+    <!-- BEGIN SIDEBAR -->
+    <div class="sidebar col-md-3 col-sm-3">
+        <ul class="list-group margin-bottom-25 sidebar-menu">
+            <?php foreach ($this->menuAccount as $menu): ?>
+                <li class="list-group-item clearfix <?= $menu['classActive'] ?>">
+                    <a href="<?= $menu['href'] ?>">
+                        <i class="fa fa-angle-right"></i><?= $this->translate($menu['caption']) ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- BEGIN CONTENT -->
+    <div class="col-md-9 col-sm-9">
+        <h1><?= $this->translate('My account') ?></h1>
+
+        <div class="content-form-page">
+            <div class="row">
+                <div class="col-md-7 col-sm-7">
+                    <form method="post" name="registrationForm" class="form-horizontal" enctype="multipart/form-data"
+                          id="registrationForm"><input type="hidden" name="id" id="id" value="">
+                        <legend>Your personal details</legend>
+                        <div class="form-group">
+                            <label for="first_name" class="col-lg-4 control-label">
+                                First Name <span class="require"></span> </label>
+
+                            <div class="col-lg-8">
+                                <label class="form-control"><?=$this->user['first_name']?></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name" class="col-lg-4 control-label">
+                                Last Name <span class="require"></span> </label>
+
+                            <div class="col-lg-8">
+                                <label class="form-control"><?=$this->user['last_name']?></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-lg-4 control-label">
+                                Email <span class="require"></span> </label>
+
+                            <div class="col-lg-8">
+                                <label class="form-control"><?=$this->user['email']?></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-lg-4 control-label">
+                                Phone <span class="require"></span> </label>
+
+                            <div class="col-lg-8">
+                                <label class="form-control"><?=$this->user['phone']?></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="avatar" class="col-lg-4 control-label">
+                                Avatar </label>
+
+                            <div class="col-lg-8">
+                                <img src="/<?=$this->user['avatar']?>" width="100%">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END SIDEBAR & CONTENT -->

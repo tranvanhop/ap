@@ -1,0 +1,57 @@
+<ul class="breadcrumb">
+</ul>
+<!-- BEGIN SIDEBAR & CONTENT -->
+<div class="row margin-bottom-40">
+    <!-- BEGIN SIDEBAR -->
+    <div class="sidebar col-md-3 col-sm-3">
+
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- BEGIN CONTENT -->
+    <div class="col-md-9 col-sm-9">
+
+        <div class="content-form-page">
+            <div class="row">
+                <div class="col-md-7 col-sm-7">
+                    <?php
+                        $form = $this->loginForm;
+//                        $form->prepare();
+                    ?>
+                    <?= $this->form()->openTag($form) ?>
+                        <?php foreach($form->getElements() as $element): ?>
+                            <?php switch($element->getAttribute('type')):
+                                case 'hidden':?>
+                                    <?=$this->formElement($element)?>
+                                    <?php break; ?>
+                                <?php case 'submit':?>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                                            <button type="<?=$element->getAttribute('type')?>" class="<?=$element->getAttribute('class')?>"><?=$this->translate($element->getOptions()['label'])?></button>
+                                        </div>
+                                    </div>
+                                    <?php break; ?>
+                                <?php default:?>
+                                    <div class="form-group">
+                                        <label for="<?=$element->getName()?>" class="<?=$element->getOptions()['label_attributes']['class']?>">
+                                            <?=$this->translate($element->getOptions()['label'])?>
+                                            <?php if($form->getInputFilter()->get($element->getName())->isRequired()) :?><span class="require">*</span><?php endif; ?>
+                                        </label>
+
+                                        <div class="col-lg-8">
+                                            <?=$this->formElement($element)?>
+                                            <span class="alert-danger"><?= $this->formElementErrors($element); ?></span>
+                                        </div>
+                                    </div>
+                                    <?php break; ?>
+                            <?php endswitch; ?>
+                        <?php endforeach; ?>
+                    <?= $this->form()->closeTag() ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END SIDEBAR & CONTENT -->
+
